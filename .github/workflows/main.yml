@@ -1,4 +1,4 @@
-name: Run dengQG playwright script
+name: Run playwright script
 
 on:
   workflow_dispatch: # 当手动触发时执行工作流程
@@ -17,7 +17,9 @@ jobs:
         node-version: '14'
     
     - name: Install dependencies
-      run: npm install
+      run: |
+        npm install # 安装项目的依赖
+        npm install playwright # 安装 Playwright 依赖
     
     - name: Run Playwright script
       run: node dengQG.pw.js
