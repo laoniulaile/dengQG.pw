@@ -11,15 +11,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
     
-    - name: Install Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-    
-    - name: Install dependencies
-      run: |
-        npm install # 安装项目的依赖
-        npm install playwright # 安装 Playwright 依赖
+    - name: Install Playwright dependencies
+      run: npm install playwright
     
     - name: Run Playwright script
       run: node dengQG.pw.js
