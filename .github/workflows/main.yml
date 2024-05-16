@@ -1,0 +1,35 @@
+name: Run dengQG playwright script
+
+on:
+  workflow_dispatch: # 当手动触发时执行工作流程
+
+jobs:
+  execute_playwright_script:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Run Playwright script
+      run: node dengQG.pw.js
+    
+    - name: Save screenshot
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshots
+        path: screenshot.png # 生成的截图文件
+        
+    - name: Save cookies
+      uses: actions/upload-artifact@v2
+      with:
+        name: cookies
+        path: qianguocookies1.json # 生成的 cookies 文件
