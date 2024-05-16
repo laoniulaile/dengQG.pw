@@ -15,7 +15,7 @@ jobs:
       run: npm install playwright
     
     - name: Run Playwright script
-      run: node dengQG.pw.js
+      run: node main/dengQG.pw.js # 指定脚本文件的路径
     
     - name: Save screenshot
       uses: actions/upload-artifact@v2
